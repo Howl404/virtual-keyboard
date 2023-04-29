@@ -33,6 +33,71 @@ const keyboardLayouts = {
   russianSecond: [],
 };
 
+const fillText = (e) => {
+  let newStr;
+  let position;
+  switch (e.target.innerHTML) {
+    case 'Enter':
+      text.value += '\n';
+      text.focus();
+      break;
+    case 'Tab':
+      text.value += '  ';
+      text.focus();
+      break;
+    case 'Spacebar':
+      text.value += ' ';
+      text.focus();
+      break;
+    case 'Backspace':
+      position = text.selectionStart;
+      if (text.selectionStart === 0 && text.selectionEnd === 0) {
+        return;
+      }
+      if (text.selectionStart === text.selectionEnd) {
+        newStr = text.value.split('');
+        newStr.splice(text.selectionStart - 1, 1);
+        text.value = newStr.join('');
+        text.focus();
+        text.selectionStart = position - 1;
+        text.selectionEnd = position - 1;
+      } else {
+        newStr = text.value.split('');
+        newStr.splice(text.selectionStart, text.selectionEnd - text.selectionStart);
+        text.value = newStr.join('');
+        text.focus();
+        text.selectionStart = position;
+        text.selectionEnd = position;
+      }
+      break;
+    case 'Del':
+      position = text.selectionStart;
+      if (position === text.value.length) {
+        return;
+      }
+      if (text.selectionStart === text.selectionEnd) {
+        newStr = text.value.split('');
+        newStr.splice(text.selectionStart, 1);
+        text.value = newStr.join('');
+        text.focus();
+        text.selectionStart = position;
+        text.selectionEnd = position;
+      } else {
+        newStr = text.value.split('');
+        newStr.splice(text.selectionStart, text.selectionEnd - text.selectionStart);
+        text.value = newStr.join('');
+        text.focus();
+        text.selectionStart = position;
+        text.selectionEnd = position;
+      }
+      break;
+    default:
+      text.value += e.target.innerHTML;
+      text.focus();
+      break;
+  }
+};
+
 const createKeyboard = (language) => {
   const nodes = [];
   if (language === 'english') {
@@ -56,86 +121,7 @@ const createKeyboard = (language) => {
     }
     div.innerHTML = nodes[i].firstKey;
 
-    div.addEventListener('click', (e) => {
-      let newStr;
-      let position;
-      switch (e.target.innerHTML) {
-        case 'Enter':
-          text.value += '\n';
-          text.focus();
-          break;
-        case 'Tab':
-          text.value += '  ';
-          text.focus();
-          break;
-        case 'Spacebar':
-          text.value += ' ';
-          text.focus();
-          break;
-        case 'Backspace':
-          position = text.selectionStart;
-          if (text.selectionStart === 0 && text.selectionEnd === 0) {
-            return;
-          }
-          if (text.selectionStart === text.selectionEnd) {
-            newStr = text.value.split('');
-            console.log(newStr);
-            newStr.splice(text.selectionStart - 1, 1);
-            console.log(newStr);
-            text.value = newStr.join('');
-            text.focus();
-            text.selectionStart = position - 1;
-            text.selectionEnd = position - 1;
-          } else {
-            console.log(text.selectionStart);
-            console.log(text.selectionEnd);
-            newStr = text.value.split('');
-            console.log(newStr);
-            newStr.splice(text.selectionStart, text.selectionEnd - text.selectionStart);
-            console.log(newStr);
-            text.value = newStr.join('');
-            text.focus();
-            text.selectionStart = position;
-            text.selectionEnd = position;
-            console.log(text.selectionStart);
-          }
-
-          break;
-        case 'Del':
-          position = text.selectionStart;
-          if (position === text.value.length) {
-            return;
-          }
-          if (text.selectionStart === text.selectionEnd) {
-            newStr = text.value.split('');
-            console.log(newStr);
-            newStr.splice(text.selectionStart, 1);
-            console.log(newStr);
-            text.value = newStr.join('');
-            text.focus();
-            text.selectionStart = position;
-            text.selectionEnd = position;
-          } else {
-            console.log(text.selectionStart);
-            console.log(text.selectionEnd);
-            newStr = text.value.split('');
-            console.log(newStr);
-            newStr.splice(text.selectionStart, text.selectionEnd - text.selectionStart);
-            console.log(newStr);
-            text.value = newStr.join('');
-            text.focus();
-            text.selectionStart = position;
-            text.selectionEnd = position;
-            console.log(text.selectionStart);
-          }
-
-          break;
-        default:
-          text.value += e.target.innerHTML;
-          text.focus();
-          break;
-      }
-    });
+    div.addEventListener('click', fillText);
 
     container.appendChild(div);
   }
