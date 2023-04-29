@@ -74,7 +74,7 @@ const createKeyboard = (language) => {
           break;
         case 'Backspace':
           position = text.selectionStart;
-          if (text.selectionStart === 0) {
+          if (text.selectionStart === 0 && text.selectionEnd === 0) {
             return;
           }
           if (text.selectionStart === text.selectionEnd) {
