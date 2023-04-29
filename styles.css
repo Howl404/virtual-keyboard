@@ -1,4 +1,5 @@
 body {
+  margin: 0;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -7,7 +8,20 @@ body {
   row-gap: 10px;
 }
 
+.textarea {
+  font-family: "Darumadrop One", cursive;
+  width: 900px;
+  height: 290px;
+  font-size: 1.5rem;
+  border: 2px solid lightcoral;
+}
+.textarea:focus-visible {
+  outline: none;
+}
+
 .container {
+  background-color: lightcoral;
+  border: 5px solid lightcoral;
   width: 900px;
   margin: 0 auto;
   display: grid;
@@ -16,6 +30,10 @@ body {
   grid-auto-rows: 50px;
 }
 .container div {
+  font-family: "Darumadrop One", cursive;
+  font-size: 20px;
+  background-color: black;
+  color: white;
   border: 1px solid black;
   display: flex;
   justify-content: center;
@@ -39,13 +57,4 @@ body {
 }
 .container .keySpacebar {
   grid-column: span 4;
-}
-
-.textarea {
-  width: 900px;
-  height: 290px;
-  font-size: 1.5rem;
-}
-.textarea:focus-visible {
-  outline: none;
 }/*# sourceMappingURL=styles.css.map */
