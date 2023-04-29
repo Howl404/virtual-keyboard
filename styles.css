@@ -45,4 +45,7 @@ body {
   width: 900px;
   height: 290px;
   font-size: 1.5rem;
+}
+.textarea:focus-visible {
+  outline: none;
 }/*# sourceMappingURL=styles.css.map */
