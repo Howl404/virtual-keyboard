@@ -101,6 +101,35 @@ const createKeyboard = (language) => {
           }
 
           break;
+        case 'Del':
+          position = text.selectionStart;
+          if (position === text.value.length) {
+            return;
+          }
+          if (text.selectionStart === text.selectionEnd) {
+            newStr = text.value.split('');
+            console.log(newStr);
+            newStr.splice(text.selectionStart, 1);
+            console.log(newStr);
+            text.value = newStr.join('');
+            text.focus();
+            text.selectionStart = position;
+            text.selectionEnd = position;
+          } else {
+            console.log(text.selectionStart);
+            console.log(text.selectionEnd);
+            newStr = text.value.split('');
+            console.log(newStr);
+            newStr.splice(text.selectionStart, text.selectionEnd - text.selectionStart);
+            console.log(newStr);
+            text.value = newStr.join('');
+            text.focus();
+            text.selectionStart = position;
+            text.selectionEnd = position;
+            console.log(text.selectionStart);
+          }
+
+          break;
         default:
           text.value += e.target.innerHTML;
           text.focus();
