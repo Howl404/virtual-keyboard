@@ -1,0 +1,52 @@
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.container {
+  width: 900px;
+  margin: 0 auto;
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(16, 1fr);
+  grid-auto-rows: 50px;
+  div {
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .keyBackspace,
+  .keyTab,
+  .keyCaps,
+  .keyCtrl {
+    grid-column: span 2;
+  }
+
+  .keyEnter {
+    grid-column: span 3;
+  }
+
+  .Shift43 {
+    grid-column: span 3;
+  }
+
+  .Shift55 {
+    grid-column: span 2;
+  }
+  
+  .keySpacebar {
+    grid-column: span 4;
+  }
+}
+
+.textarea {
+  width: 900px;
+  height: 290px;
+  font-size: 1.5rem;
+}
