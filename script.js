@@ -9,7 +9,7 @@ document.body.appendChild(cont);
 
 const description = document.createElement('p');
 description.classList.add('description');
-description.innerHTML = 'Created on Windows <br> To change language use left Shift + left Alt';
+description.innerHTML = 'Created for Windows. <br> To change language use any combination of Shift + Alt';
 document.body.appendChild(description);
 
 const container = document.querySelector('.container');
