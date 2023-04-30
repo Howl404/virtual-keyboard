@@ -39,22 +39,27 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  transition: background-color 350ms;
 }
-.container .keyBackspace,
-.container .keyTab,
-.container .keyCaps,
-.container .keyCtrl {
+.container .Backspace,
+.container .Tab,
+.container .CapsLock,
+.container .ControlLeft,
+.container .ControlRight {
   grid-column: span 2;
 }
-.container .keyEnter {
+.container .Enter {
   grid-column: span 3;
 }
-.container .Shift43 {
+.container .ShiftLeft {
   grid-column: span 3;
 }
-.container .Shift55 {
+.container .ShiftRight {
   grid-column: span 2;
 }
-.container .keySpacebar {
+.container .Space {
   grid-column: span 4;
+}
+.container .active {
+  background-color: limegreen;
 }/*# sourceMappingURL=styles.css.map */

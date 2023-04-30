@@ -38,27 +38,33 @@ body {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    transition: background-color 350ms;
   }
-  .keyBackspace,
-  .keyTab,
-  .keyCaps,
-  .keyCtrl {
+  .Backspace,
+  .Tab,
+  .CapsLock,
+  .ControlLeft,
+  .ControlRight {
     grid-column: span 2;
   }
 
-  .keyEnter {
+  .Enter {
     grid-column: span 3;
   }
 
-  .Shift43 {
+  .ShiftLeft {
     grid-column: span 3;
   }
 
-  .Shift55 {
+  .ShiftRight {
     grid-column: span 2;
   }
   
-  .keySpacebar {
+  .Space {
     grid-column: span 4;
+  }
+
+  .active {
+    background-color: limegreen;
   }
 }
