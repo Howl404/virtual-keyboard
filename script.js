@@ -1,3 +1,17 @@
+const textarea = document.createElement('textarea');
+textarea.classList.add('textarea');
+textarea.autofocus = true;
+document.body.appendChild(textarea);
+
+const cont = document.createElement('div');
+cont.classList.add('container');
+document.body.appendChild(cont);
+
+const description = document.createElement('p');
+description.classList.add('description');
+description.innerHTML = 'Created on Windows <br> To change language use left Shift + left Alt';
+document.body.appendChild(description);
+
 const container = document.querySelector('.container');
 const text = document.querySelector('.textarea');
 let CapsLock = false;

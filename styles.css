@@ -19,6 +19,12 @@ body {
   outline: none;
 }
 
+.description {
+  font-family: "Darumadrop One", cursive;
+  font-size: 2rem;
+  text-align: center;
+}
+
 .container {
   background-color: lightcoral;
   border: 5px solid lightcoral;
