@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.textarea {
+  font-family: "Darumadrop One", cursive;
+  width: 900px;
+  height: 290px;
+  font-size: 1.5rem;
+  border: 2px solid lightcoral;
+}
+.textarea:focus-visible {
+  outline: none;
+}
+
+.description {
+  font-family: "Darumadrop One", cursive;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.container {
+  background-color: lightcoral;
+  border: 5px solid lightcoral;
+  width: 900px;
+  margin: 0 auto;
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(16, 1fr);
+  grid-auto-rows: 50px;
+}
+.container div {
+  font-family: "Darumadrop One", cursive;
+  font-size: 20px;
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 350ms;
+}
+.container .Backspace,
+.container .Tab,
+.container .CapsLock,
+.container .ControlLeft,
+.container .ControlRight {
+  grid-column: span 2;
+}
+.container .Enter {
+  grid-column: span 3;
+}
+.container .ShiftLeft {
+  grid-column: span 3;
+}
+.container .ShiftRight {
+  grid-column: span 2;
+}
+.container .Space {
+  grid-column: span 4;
+}
+.container .active {
+  background-color: limegreen;
+  scale: 0.95;
+}
